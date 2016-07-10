@@ -1,26 +1,11 @@
-﻿/*
-Navicat MySQL Data Transfer
-
-Source Server         : MyTest
-Source Server Version : 50625
-Source Host           : localhost:3306
-Source Database       : jysystem
-
-Target Server Type    : MYSQL
-Target Server Version : 50625
-File Encoding         : 65001
-
-Date: 2016-04-10 22:17:13
-*/
-
-SET FOREIGN_KEY_CHECKS=0;
+﻿SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
 -- Table structure for JY_BASE_ACCOUNT
 -- ----------------------------
 DROP TABLE IF EXISTS `JY_BASE_ACCOUNT`;
 CREATE TABLE `JY_BASE_ACCOUNT` (
-  `id` varchar(32) CHARACTER SET utf8 NOT NULL COMMENT '用户Id',
+  `id` varchar(32) CHARACTER SET utf8 NOT NULL COMMENT '用户Id',
   `loginName` varchar(32) CHARACTER SET utf8 NOT NULL COMMENT '用户登录名',
   `password` varchar(32) CHARACTER SET utf8 NOT NULL COMMENT '密码',
   `salt` varchar(32) NOT NULL,

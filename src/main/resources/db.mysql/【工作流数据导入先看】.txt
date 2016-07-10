@@ -1,9 +1,6 @@
-¹¤×÷Á÷identity,history,engineÈıÕÅ±í¶¼ĞèÒªµ¼
+å·¥ä½œæµidentity,history,engineä¸‰å¼ è¡¨éƒ½éœ€è¦å¯¼
 
 
-identity²»·Ö°æ±¾
+identityä¸åˆ†ç‰ˆæœ¬
 
-µ«history£¬engine·Ö°æ±¾£¬¸ù¾İ×Ô¼ºµÄmysql°æ±¾µ¼Ò»¸ö°æ±¾¾ÍºÃ
-
-
-
+ä½†historyï¼Œengineåˆ†ç‰ˆæœ¬ï¼Œæ ¹æ®è‡ªå·±çš„mysqlç‰ˆæœ¬å¯¼ä¸€ä¸ªç‰ˆæœ¬å°±å¥½
