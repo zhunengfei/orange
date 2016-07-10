@@ -15,7 +15,7 @@
        </if>
     </select> 
     <select id="getItem"  resultMap="baseItem" parameterType="DataDictItem">
-       SELECT t.* FROM jy_data_dict_item t WHERE  
+       SELECT t.* FROM JY_DATA_DICT_ITEM t WHERE  
        t.dictId=#{dictId}
        ORDER BY t.sort
     </select> 
@@ -34,7 +34,7 @@
         ORDER BY t.createTime desc
     </select>  
     <select id="count"  resultType="int" parameterType="DataDict">
-       SELECT count(*) FROM jy_data_dict t WHERE 1=1 
+       SELECT count(*) FROM JY_DATA_DICT t WHERE 1=1 
        <if test="dataKey!= null and dataKey!=''">
        	and t.dataKey=#{dataKey} 
        </if>

@@ -1,12 +1,11 @@
 target/
 
 /webapp/WEB-INF/classes
-
+/logs
 /.settings
 
 /.classpath
 
 /.project
-/mossle.store
 /.idea
-lemon.iml
+orange.iml

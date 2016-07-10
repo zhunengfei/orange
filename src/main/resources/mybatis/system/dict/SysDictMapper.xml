@@ -30,7 +30,7 @@
        order by t.createTime desc
     </select>  
     <select id="count"  resultType="int" parameterType="SysDict">
-       SELECT count(*) FROM jy_sys_dict t WHERE 1=1 
+       SELECT count(*) FROM JY_SYS_DICT t WHERE 1=1 
     </select>        
  	<insert id="insert"  parameterType="SysDict">	
  	<![CDATA[

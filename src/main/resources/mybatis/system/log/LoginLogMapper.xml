@@ -5,7 +5,7 @@
  	<resultMap id="base" type="LoginLog" ></resultMap>
  	<select id="findByPage"  resultMap="base" parameterType="LoginLog">
        SELECT t.id,t.accountId,t.loginTime,t.loginIP,jba.loginName as aName FROM JY_BASE_LOGIN_LOG t
-       LEFT JOIN jy_base_account jba
+       LEFT JOIN JY_BASE_ACCOUNT jba
        ON jba.id=t.accountId
        WHERE 1=1 
        <if test="param.keyWord!= null">

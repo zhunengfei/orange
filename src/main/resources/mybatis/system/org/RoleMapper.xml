@@ -5,7 +5,7 @@
     <resultMap id="base" type="BaseRole"></resultMap>
     <resultMap id="ZNodes" type="com.jy.common.utils.tree.entity.ZNodes"></resultMap>
     <select id="find"  resultMap="base" parameterType="BaseRole">
-       SELECT t.* FROM jy_base_role t WHERE 1=1 
+       SELECT t.* FROM JY_BASE_ROLE t WHERE 1=1 
        <if test="name != null and name!='' ">
         	and t.name=#{name}
        </if>
@@ -18,7 +18,7 @@
        ORDER BY t.createTime
     </select> 
     <select id="findByPage"  resultMap="base" parameterType="BaseRole">
-       SELECT t.* FROM jy_base_role t WHERE 1=1
+       SELECT t.* FROM JY_BASE_ROLE t WHERE 1=1
       <if test="param.orgId!= null and param.orgId!=''">
         	AND t.orgId=#{param.orgId}
       </if>
@@ -31,7 +31,7 @@
         ORDER BY t.createTime
     </select>
     <select id="findAllRoleByPage"  resultMap="base" parameterType="BaseRole">
-       SELECT t.* FROM jy_base_role t WHERE 1=1
+       SELECT t.* FROM JY_BASE_ROLE t WHERE 1=1
       <if test="param.allOrgIds!= null and param.allOrgIds!=''">
         	AND t.orgId IN (${param.allOrgIds})
       </if>
@@ -44,20 +44,20 @@
         ORDER BY t.createTime
     </select>    
     <select id="count"  resultType="int" parameterType="BaseRole">
-       SELECT count(*) FROM jy_base_role t WHERE 1=1 
+       SELECT count(*) FROM JY_BASE_ROLE t WHERE 1=1 
     </select>      
     	<insert id="insert"  parameterType="BaseRole">	
  	<![CDATA[
-	INSERT INTO jy_base_role(id,orgId,name,isValid,description,createTime) 
+	INSERT INTO JY_BASE_ROLE(id,orgId,name,isValid,description,createTime) 
 	VALUES (#{id},#{orgId},#{name},#{isValid},#{description},#{createTime})
 	]]>  
 	</insert>
 	<delete id="delete" parameterType="BaseRole">
-	DELETE FROM jy_base_role  
+	DELETE FROM JY_BASE_ROLE  
 	WHERE id=#{id} 
 	</delete>
 	<delete id="deleteBatch" parameterType="java.util.List">
-	DELETE FROM jy_base_role 
+	DELETE FROM JY_BASE_ROLE 
 	WHERE id in(
 		<foreach item="o" collection="list" open="" separator="," close="" >
 			#{o.id}
@@ -65,7 +65,7 @@
 		)
 	</delete>
 	<update id="update" parameterType="BaseRole">
-		UPDATE jy_base_role 
+		UPDATE JY_BASE_ROLE 
 		SET name =#{name},
 			isValid=#{isValid},
 			description=#{description},
@@ -87,25 +87,25 @@
 	 LEFT JOIN (SELECT 	thjbor.org_Id as th_org_Id,
 				thjbor.resources_id as resources_id,
 			    tjbrr.role_id as role_Id
-			    FROM jy_base_org_resources thjbor
-			    LEFT JOIN (SELECT t.role_id,t.resources_id FROM jy_base_role_resources t where t.role_id=#{roleId}) tjbrr
+			    FROM JY_BASE_ORG_RESOURCES thjbor
+			    LEFT JOIN (SELECT t.role_id,t.resources_id FROM JY_BASE_ROLE_RESOURCES t where t.role_id=#{roleId}) tjbrr
 					   ON thjbor.resources_id=tjbrr.resources_id
-					   WHERE thjbor.org_Id in (SELECT t.orgId FROM jy_base_role t WHERE t.id=#{roleId})) jbor
+					   WHERE thjbor.org_Id in (SELECT t.orgId FROM JY_BASE_ROLE t WHERE t.id=#{roleId})) jbor
 	 ON jbor.resources_id=jbre.id
 	 WHERE jbre.layer=#{layer}
      ORDER BY jbre.parentId,jbre.type,jbre.sort
     </select>
     <delete id="delAuthorizedByRoleId" parameterType="String">
-		DELETE from jy_base_role_resources 
+		DELETE from JY_BASE_ROLE_RESOURCES 
 		WHERE role_id=#{roleId} 
 	</delete>
 	<delete id="delAuthorizedByRoleIdAndLayer" parameterType="String">
-		DELETE from jy_base_role_resources 
-		WHERE role_id=#{roleId} AND EXISTS (SELECT jbr.id FROM jy_base_resources jbr 
+		DELETE from JY_BASE_ROLE_RESOURCES 
+		WHERE role_id=#{roleId} AND EXISTS (SELECT jbr.id FROM JY_BASE_RESOURCES jbr 
 										  WHERE resources_id=jbr.id AND jbr.layer=#{layer})
 	</delete>
 	<delete id="deleteBatchAuthorizedByRoleId" parameterType="java.util.List">
-	DELETE from jy_base_role_resources 
+	DELETE from JY_BASE_ROLE_RESOURCES 
 	WHERE role_id in(
 		<foreach item="o" collection="list" open="" separator="," close="" >
 			#{o.id}
@@ -113,14 +113,14 @@
 		)
 	</delete>
 	<insert id="insertAuthorizedByRoleId" parameterType="java.util.List">
-		INSERT INTO jy_base_role_resources(role_id,resources_id)  
+		INSERT INTO JY_BASE_ROLE_RESOURCES(role_id,resources_id)  
 		VALUES 
 		<foreach item="o" collection="list"  separator="," >
 			(#{o.roleId},#{o.resourcesId})
 		</foreach>
 	</insert>
 	 <select id="getRole"  resultMap="base" parameterType="String">
-       SELECT t.* FROM jy_base_role t 
+       SELECT t.* FROM JY_BASE_ROLE t 
        WHERE 1=1 
        <if test="id != null and id!='' ">
         	and t.id=#{id}
